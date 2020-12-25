@@ -1,16 +1,24 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-width:100vw;
-margin:0;
-height:14vh;
-background: lightSkyblue;
 display:flex;
+flex-direction: column;
 justify-content:center;
 align-items:center
+width:100vw;
+margin-top:1vh;
+margin:0;
+background: lightSkyblue;
+
 form{
+  width:100vw;
+  margin-top: 2vh;
+  margin-bottom:2vh;
   display:flex;
+  justify-content:center;
+  align-items:center
   flex-direction: inline;
+  
 }
 input{
   display:flex;
@@ -19,19 +27,24 @@ input{
   text-transform:capitalize;
   border:0;
   border-radius:4px;
-  width:22vw;
-  height: 5vh;
+  width:20vw;
+  height: 50px;
   padding:0 15px;
   margin-left:1vw;
   font-size:14px
   @media (max-width:750px) {
-    font-size:10px;
     padding: 0 1px;
+    width:16vw;
     }
-    @media (max-width:300px) {
-    font-size:8px;
+    @media (max-width:510px) {
     padding: 0 0px;
-    width:20vw
+    font-size:10px;
+    width:14vw
+  }
+  @media (max-width:410px) {
+    padding: 0 0px;
+    font-size:6px;
+    width:10vw
   }
 }
 button{
@@ -39,11 +52,11 @@ button{
   display:flex;
   justify-content:center;
   align-items:center;
-  width:7vw;
-  height: 5vh;
-  margin-left:2vw;
+  width:8vw;
+  height: 50px;
+  margin-left:1vw;
   margin-right:5vw;
-  font-size:14px;
+  font-size:12px;
   transition:all 0.5s ease-in-out;
   &:hover{
     background: lightblue;
@@ -53,13 +66,11 @@ button{
   }
   @media (max-width:750px) {
     font-size:10px;
-    width:10vw;
     margin-left:1vw;
     margin-right:1vw
     }
-    @media (max-width:300px) {
+    @media (max-width:350px) {
       font-size:8px;
-      width:8vw
       }
 }
  #link{
@@ -68,18 +79,24 @@ button{
 
 `
 export const Profile = styled.div`
+width:100vw;
+margin-top:2vh;
 display: flex;
-padding-right:3vw;
-flex-direction: column;
 justify-content: center;
 align-items: center;
+
+`
+export const ConteudoProfile = styled.div`
+width:50vw;
+display: flex;
+justify-content: space-between;
+align-items: center;
 @media (max-width:750px) {
-  font-size:10px;
-  padding-right:0
-  h1{
-    font-size: 10px
+  width:60vw
   }
-  }
+  @media (max-width:500px) {
+    width:95vw
+    }
 `
 
 

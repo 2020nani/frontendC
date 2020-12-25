@@ -33,11 +33,15 @@ justify-content:center;
 width:55vw;
 margin-top: 3vh;
 margin-left:1vw;
+@media (max-width:750px) {
+  width:100vw;
+  }
+
 table{
   width:55vw;
   border-collapse: collapse;
   @media (max-width:750px) {
-    width:100vw
+    width:98vw;
     }
 }
 th{
@@ -45,8 +49,8 @@ th{
   height:6vh;
   border: 1px solid black;
   font-size:14px
-  @media (max-width:300px) {
-    font-size:10px
+  @media (max-width:350px) {
+    font-size:9px
     }
 }
 
@@ -56,8 +60,8 @@ td{
   text-align:center;
   font-size:14px;
   border: 1px solid black;
-  @media (max-width:300px) {
-    font-size:10px
+  @media (max-width:350px) {
+    font-size:9px
     }
 }
 

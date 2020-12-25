@@ -4,32 +4,29 @@ import { Link, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
-import Modal from '../Modal';
-import { Container, Profile } from '../Header/styles';
+import { Container, ConteudoProfile, Profile } from '../Header/styles';
 import * as Yup from 'yup';
 
 const schema = Yup.object().shape({
   firstname: Yup.string()
-    .required('Firstname e obrigatorio'),
+    .required(),
   lastname: Yup.string()
-    .required('Lastname e obrigatorio'),
+    .required(),
   participation: Yup.number()
-    .required()
+    .required("Campo requerido")
     .min(0.1, "valor minimo e 0.1")
     .max(100, "valor maximo e 100"),
+    
 })
-export default function Header() {
 
+export default function Header() {
+  
   const profile = useSelector(state => state.admin.profile);
   const [modal, setModal] = useState(false);
-  const [firstname, setFirstname] = useState();
-  const [lastname, setLastname] = useState();
-  const [participation, setParticipation] = useState();
+  
 
  async function handleSubmit({ firstname, lastname, participation }) {
-    setFirstname(firstname)
-    setLastname(lastname)
-    setParticipation(participation)
+    
     const response = await api.post('dados', {
       firstname,
       lastname,
@@ -41,11 +38,21 @@ export default function Header() {
     
   }
 
-  return (
+  return (console.log(profile),
     
     <Container> 
       {modal === false ?
       <>
+      
+       <Profile>
+       <ConteudoProfile>
+        <strong>Administrador: </strong>
+        <span>ID: {profile.id} NOME: {profile.name}</span>
+        <Link to="/profile">Meu perfil</Link>
+        </ConteudoProfile>
+      </Profile>
+      
+
       <Form schema={schema} onSubmit={handleSubmit} >
         <Input name="firstname" type="text" placeholder="firstname" />
         <Input name="lastname" type="text" placeholder="lastname" />
@@ -55,11 +62,7 @@ export default function Header() {
 
 
       </Form>
-      <Profile>
-        <span>Administrador</span>
-        <strong>{profile.name}</strong>
-        <Link to="/profile">Meu perfil</Link>
-      </Profile>
+     
       </>
       :<Redirect to="/modal" />}
     </Container>
