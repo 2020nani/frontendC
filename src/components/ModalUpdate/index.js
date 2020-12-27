@@ -6,11 +6,8 @@ export default function Modal(props) {
         <Container>
             <Conteudo>
                 <h1>PARABÉNS!</h1>
-                <p>Usuario {props.children[0]} {props.children[1]} alterado para</p>
-                <strong>Novo cadastro</strong>
-                <span>`Firstname = {props.children[0]}`</span>
-                <span>`Lastname = {props.children[1]}`</span>
-                <span>`Participation = {props.children[2]}`</span>
+                <p>Usuario Editado com sucesso</p>
+               
                 <Link to="/">
                     <button >HOME</button>
                 </Link>

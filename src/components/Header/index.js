@@ -32,7 +32,7 @@ export default function Header() {
       lastname,
       participation
     })
-    {response.data != "Porcentagem nao pode ultrapassar 100 porcento." ?
+    {response.data !== "Porcentagem nao pode ultrapassar 100 porcento." ?
     setModal(true)
     : toast.error("porcentagem acima dos 100% permitido")}
     

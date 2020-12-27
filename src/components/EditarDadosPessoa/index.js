@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Container, Conteudo } from '../EditarDadosPessoa/styles';
 import { toast } from 'react-toastify';
 import { Form, Input } from '@rocketseat/unform';
-import ModalUpdate from '../ModalUpdate'
 import api from '../../services/api';
 import * as Yup from 'yup';
 
@@ -20,21 +19,19 @@ const schema = Yup.object().shape({
 
 export default function EditarDadosPessoa( props ) {
   const [modal, setModal] = useState(false);
-  const [firstname, setFirstname] = useState();
-  const [lastname, setLastname] = useState();
-  const [participation, setParticipation] = useState();
+ 
   
   async function handleSubmit({ firstname, lastname, participation }) {
-    setFirstname(firstname)
-    setLastname(lastname)
-    setParticipation(participation)
+   // setFirstname(firstname)
+   // setLastname(lastname)
+   // setParticipation(participation)
   
     const response = await api.put(`dados/${props.children}`, {
       firstname,
       lastname,
       participation
     })
-    {response.data != "Porcentagem nao pode ultrapassar 100 porcento." ?
+    {response.data !== "Porcentagem nao pode ultrapassar 100 porcento." ?
     setModal(true)
     : toast.error("porcentagem acima dos 100% permitido")}
   }
@@ -63,7 +60,7 @@ export default function EditarDadosPessoa( props ) {
 
       </Conteudo>
      </>
-     :<ModalUpdate>{[firstname,lastname,participation,props.children]}</ModalUpdate>} 
+     :<Redirect to="/modalupdate" />} 
     </Container>
      
   );

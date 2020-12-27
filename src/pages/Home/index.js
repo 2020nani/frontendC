@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart } from 'react-google-charts';
-import { MdDelete, MdPersonAdd ,MdSystemUpdateAlt} from 'react-icons/md'
+import { MdDelete,MdSystemUpdateAlt} from 'react-icons/md'
 import Header from '../../components/Header';
 import EditarDadosPessoa from '../../components/EditarDadosPessoa';
 import { Container, Grafico, Tabela, Conteudo } from '../Home/styles'
@@ -37,8 +37,9 @@ export default function Home() {
   }, [])
 
   async function remover(id) {
-    const response = await api.delete(`dados/${id}`)
+    await api.delete(`dados/${id}`)
   }
+
   function handleSubmit(id) {
     setIdEdit(id)
     setEdit(true)
@@ -96,9 +97,7 @@ export default function Home() {
             height={'400px'}
             chartType="PieChart"
             data={data}
-            options={{
-              title: 'Grafico de participacao',
-            }}
+            options={options}
            
           />
         </Grafico>

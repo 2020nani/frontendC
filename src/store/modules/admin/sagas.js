@@ -8,7 +8,6 @@ export function* updateProfile({ payload }) {
     console.log(payload.data)
     const  id  = payload.data[1];
     const { name, email, ...rest } = payload.data[0];
-     console.log(id)
     const profile = {
       name,
       email,
