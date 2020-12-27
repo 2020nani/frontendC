@@ -19,6 +19,10 @@ export default function admim(state = INITIAL_STATE, action) {
         draft.profile = null;
         break;
       }
+      case '@auth/DELETE_PROFILE': {
+        draft.profile = action.payload.profile;
+        break;
+      }
       default:
     }
   });

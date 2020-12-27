@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container } from './styles';
 
 import { signOut } from '~/store/modules/auth/actions';
-import { updateProfileRequest } from '~/store/modules/admin/actions';
+import { updateProfileRequest, deleteProfile } from '~/store/modules/admin/actions';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
@@ -29,6 +29,10 @@ export default function Profile() {
 
   function handleSubmit(data) {
     dispatch(updateProfileRequest([data, profile.id]));
+  }
+
+  function handleSubmitDelete() {
+    dispatch(deleteProfile(profile.id));
   }
 
   function handleSignOut() {
@@ -60,6 +64,9 @@ export default function Profile() {
 
         <button type="submit">Atualizar perfil</button>
       </Form>
+      <button type="submit" onClick={handleSubmitDelete}>
+        Deletar administrador 
+      </button>
 
       <button type="submit" onClick={handleSignOut}>
         Sair 

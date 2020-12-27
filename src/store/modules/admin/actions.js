@@ -19,3 +19,10 @@ export function updateProfileRequest(data) {
       type: '@user/UPDATE_PROFILE_FAILURE',
     };
   }
+  export function deleteProfile(id) {
+    return {
+      type: '@user/DELETE_PROFILE',
+      payload: { id },
+      
+    };
+  }
