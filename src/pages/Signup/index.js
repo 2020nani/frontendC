@@ -1,3 +1,12 @@
+/*
+    Dados da pagina
+   * Nome : CotaboxTeste
+   * Objetivo: Testar dominio desenvolvimento fullstack
+   * Desenvolvedor: Hernani Almeida
+   * data criacao: 22/12/2020 - 27/12/2020
+   
+*/
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -21,7 +30,7 @@ const schema = Yup.object().shape({
 
 export default function SignUp() {
   const dispatch = useDispatch();
-
+/*funcao cadastra admin*/
   function handleSubmit({ name, email, password }) {
     dispatch(signUpRequest(name, email, password));
   }

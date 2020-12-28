@@ -1,6 +1,14 @@
+/*
+    Dados da pagina
+   * Nome : CotaboxTeste
+   * Objetivo: Testar dominio desenvolvimento fullstack
+   * Desenvolvedor: Hernani Almeida
+   * data criacao: 22/12/2020 - 27/12/2020
+   
+*/
+
 import { createGlobalStyle } from 'styled-components';
 
-//import 'react-perfect-scrollbar/dist/css/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`

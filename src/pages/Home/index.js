@@ -1,3 +1,12 @@
+/*
+    Dados da pagina
+   * Nome : CotaboxTeste
+   * Objetivo: Testar dominio desenvolvimento fullstack
+   * Desenvolvedor: Hernani Almeida
+   * data criacao: 22/12/2020 - 27/12/2020
+   
+*/
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart } from 'react-google-charts';
@@ -20,6 +29,7 @@ export default function Home() {
   ]);
   const [dados, setDados] = useState([])
 
+  /* chamada na api que recebe array de dadosPessoa e faz um push para const data */
   useEffect(() => {
     async function loadDados() {
 
@@ -36,10 +46,13 @@ export default function Home() {
     loadDados()
   }, [])
 
+  /*chamada na api para deletar dadosPessoa por id escolhido*/
   async function remover(id) {
     await api.delete(`dados/${id}`)
   }
 
+  /*funcao que pega o id escolhido para editar dadosPessoa e seta const edit como true
+  para chamar o componente EditarDadosPessoa*/
   function handleSubmit(id) {
     setIdEdit(id)
     setEdit(true)

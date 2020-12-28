@@ -1,10 +1,9 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
-import history from '../../../services/history';
 import api from '~/services/api';
 import { updateProfileSuccess, updateProfilefailure, deleteProfile } from './actions';
 import { signOut } from '../auth/actions'
-
+/* funcao que requisita update do admin para o servidor */
 export function* updateProfile({ payload }) {
   try {
    
@@ -27,6 +26,7 @@ export function* updateProfile({ payload }) {
   }
 }
 
+/* funcao que faz requisicao de deletar admin */
 export function* profileDelete({ payload }) {
   try {
     
@@ -44,6 +44,7 @@ export function* profileDelete({ payload }) {
   }
 }
 
+/* exporta as funcoes update e delete profile */
 export default all([
   takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
   takeLatest('@user/DELETE_PROFILE', profileDelete)

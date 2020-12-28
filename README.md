@@ -1,5 +1,39 @@
-# frontendTeste
-Site construido com a finalidade de testar conhecimentos,site consomi api que esta armazenada na heroku</br>
-Site construido em react.js no frontend e nodejs no back
-Deploy site realizado na netlify
-https://testecotabox.netlify.app/
+# COTABOX
+
+Este projeto foi gerado com o comando create react app
+
+Desenvolvido por Hernani Amancio de Almeida
+
+
+## Executar projeto
+
+Para executar o projeto, sera necessario instalar os seguintes programas em seu computador:
+
+- Nodejs 
+
+
+## Desenvolvimento
+
+Para iniciar o desenvolvimento e necessario clonar o projeto do Github num diretorio de sua preferencia com os seguintes comandos:
+
+
+- `cd "diretorio de sua preferencia"`
+- `git clone https://github.com/2020nani/frontendC.git`
+- `cd frontendC`
+
+
+Apos clonar o projeto em seu computador e necessario instalar as dependencias que o projeto utiliza com o seguinte comando:
+
+
+- `npm install` ou `yarn` caso tenha yarn instalado em sua maquina
+
+Rode o programa em seu computador na porta 3000 com o seguinte comando
+
+- `npm run start` ou 
+- `yarn start`
+
+## Rodar testes end-to-end com cypress
+
+Rode o seguinte comando 
+- `npx cypress open`
+

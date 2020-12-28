@@ -4,6 +4,8 @@ import api from '../../../services/api';
 import history from '../../../services/history';
 import { signInSuccess, signFailure } from './actions';
 
+
+/* funcao de logar e adquirir token para acesso as rotas privasas*/
 export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
@@ -26,6 +28,7 @@ export function* signIn({ payload }) {
   }
 }
 
+/* funcao de cadastrar admin */
 export function* signUp({ payload }) {
   try {
     const { name, email, password } = payload;
@@ -44,6 +47,7 @@ export function* signUp({ payload }) {
   }
 }
 
+/*function setar token para autenticacao e acesso as rotas privadas*/
 export function setToken({ payload }) {
   if (!payload) return;
   const { token } = payload.auth;
@@ -52,10 +56,12 @@ export function setToken({ payload }) {
   }
 }
 
+/*define token como null e faz logout na pagina */
 export function signOut() {
   history.push('/');
 }
 
+/* exporta as funcoes */
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),

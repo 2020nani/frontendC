@@ -2,15 +2,10 @@ import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from './styles';
-
 import { signOut } from '~/store/modules/auth/actions';
 import { updateProfileRequest, deleteProfile } from '~/store/modules/admin/actions';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-
-//import logo from '~/assets/logo.svg';
-
-
 
 const schema = Yup.object().shape({
   name: Yup.string().required('O nome é obrigatório'),
@@ -22,19 +17,30 @@ const schema = Yup.object().shape({
     .required('A senha é obrigatória'),
 });
 
+/*
+    Dados da pagina
+   * Nome : CotaboxTeste
+   * Objetivo: Testar dominio desenvolvimento fullstack
+   * Desenvolvedor: Hernani Almeida
+   * data criacao: 22/12/2020 - 27/12/2020
+   
+*/
+
 export default function Profile() {
+  /*seta cont profile com os dados armazenados do admim logado */
   const profile = useSelector(state => state.admin.profile);
-  console.log(profile)
+  /*seta useDispatch() que e uma funcao do redux*/
   const dispatch = useDispatch();
 
-  function handleSubmit(data) {
+  /*editar admin conforme dados do formulario*/
+  function handleSubmitUpdate(data) {
     dispatch(updateProfileRequest([data, profile.id]));
   }
-
+  /*deleta admin logado atraves do id*/
   function handleSubmitDelete() {
     dispatch(deleteProfile(profile.id));
   }
-
+  /*Define token como null e faz logout */
   function handleSignOut() {
     dispatch(signOut());
   }
@@ -44,7 +50,7 @@ export default function Profile() {
       <div>
         <Link to="/home">HOME</Link>
       </div>
-      <Form initialData={profile} onSubmit={handleSubmit}>
+      <Form initialData={profile} onSubmit={handleSubmitUpdate}>
        
 
         <Input name="name" placeholder="Nome completo" />
